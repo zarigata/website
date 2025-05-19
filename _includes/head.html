@@ -1,0 +1,28 @@
+<!-- CODEX DESIGN: Style Framework -->
+<style>
+  :root {
+    --pastel-primary: {{ site.pastel_palette.primary }};
+    --pastel-secondary: {{ site.pastel_palette.secondary }};
+    --box-radius: 15px;
+  }
+
+  .container {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cta-box {
+    background: var(--pastel-primary);
+    border-radius: var(--box-radius);
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+</style>
