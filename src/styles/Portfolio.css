@@ -1,0 +1,269 @@
+/* ██████╗ █████╗ ████████╗ ██████╗██╗  ██╗██╗   ██╗ ██████╗ ██████╗ ███╗   ███╗██████╗  █████╗ ███╗   ██╗██╗   ██╗
+   ██╔════╝██╔══██╗╚══██╔══╝██╔════╝██║  ██║╚██╗ ██╔╝██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔══██╗████╗  ██║╚██╗ ██╔╝
+   ██║     ███████║   ██║   ██║     ███████║ ╚████╔╝ ██║     ██║   ██║██╔████╔██║██████╔╝███████║██╔██╗ ██║ ╚████╔╝ 
+   ██║     ██╔══██║   ██║   ██║     ██╔══██║  ╚██╔╝  ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██╔══██║██║╚██╗██║  ╚██╔╝  
+   ╚██████╗██║  ██║   ██║   ╚██████╗██║  ██║   ██║   ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ██║  ██║██║ ╚████║   ██║   
+    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   */
+/* CODEX: Portfolio Page Styles
+   This file contains styles for the Portfolio page with support for both LTR and RTL layouts */
+
+/* Portfolio Header */
+.portfolio-header {
+  background: linear-gradient(135deg, var(--secondary-light) 0%, var(--bg-white) 100%);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+}
+
+.portfolio-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.portfolio-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-dark);
+}
+
+.portfolio-header p {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+}
+
+/* Portfolio Filters */
+.portfolio-filters {
+  padding: var(--spacing-lg) var(--spacing-lg);
+  background-color: var(--bg-white);
+  text-align: center;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.filter-button {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  color: var(--text-medium);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.filter-button:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.filter-button.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-item {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  background-color: var(--bg-white);
+  transition: transform var(--transition-normal);
+  border: 1px solid var(--border-color);
+}
+
+.portfolio-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-image {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.portfolio-item:hover .portfolio-image img {
+  transform: scale(1.05);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  padding: var(--spacing-lg);
+  color: white;
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform var(--transition-normal);
+  max-width: 90%;
+}
+
+.portfolio-item:hover .overlay-content {
+  transform: translateY(0);
+}
+
+.overlay-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+  color: white;
+}
+
+.overlay-content p {
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-md);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.project-details {
+  margin-bottom: var(--spacing-md);
+  font-size: 0.85rem;
+}
+
+.view-project-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.view-project-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.portfolio-info {
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.portfolio-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--text-dark);
+}
+
+.portfolio-info p {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  margin-bottom: 0;
+}
+
+/* Portfolio CTA */
+.portfolio-cta {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background-color: var(--accent-light);
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-content h2 {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-dark);
+}
+
+.cta-content p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+  color: var(--text-medium);
+}
+
+.cta-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.cta-button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: var(--box-shadow);
+}
+
+/* Box-style design */
+.portfolio-item {
+  border-bottom: 4px solid var(--primary-color);
+}
+
+/* RTL Support */
+.portfolio-page.rtl .portfolio-header,
+.portfolio-page.rtl .portfolio-filters,
+.portfolio-page.rtl .portfolio-cta {
+  text-align: right;
+}
+
+.portfolio-page.rtl .filter-buttons {
+  justify-content: center;
+}
+
+.portfolio-page.rtl .portfolio-info {
+  text-align: right;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .portfolio-header h1 {
+    font-size: 2rem;
+  }
+  
+  .cta-content h2 {
+    font-size: 1.8rem;
+  }
+}

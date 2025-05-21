@@ -1,0 +1,55 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "portfolio": "Portfolio",
+    "contact": "Contact Us",
+    "language": "العربية"
+  },
+  "hero": {
+    "title": "CatchyCompany",
+    "subtitle": "Marketing & Digital Consultancy",
+    "description": "Your trusted partner for digital transformation in the Saudi market",
+    "cta": "Get Started"
+  },
+  "services": {
+    "title": "Our Services",
+    "ai": {
+      "title": "AI Solutions",
+      "description": "Cutting-edge artificial intelligence solutions tailored for your business needs"
+    },
+    "marketing": {
+      "title": "Digital Marketing",
+      "description": "Strategic marketing campaigns that drive results in the Saudi market"
+    },
+    "web": {
+      "title": "Website Development",
+      "description": "Beautiful, responsive websites that showcase your brand effectively"
+    }
+  },
+  "about": {
+    "title": "About CatchyCompany",
+    "description": "We are a leading marketing and digital consultancy serving the Saudi market. With expertise in AI, marketing, and website development, we help businesses transform their digital presence and achieve their goals.",
+    "mission": "Our mission is to provide innovative digital solutions that drive growth and success for our clients in the Saudi market.",
+    "vision": "To be the premier digital transformation partner for businesses in Saudi Arabia, known for excellence, innovation, and results."
+  },
+  "portfolio": {
+    "title": "Our Work",
+    "viewProject": "View Project"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Send Message",
+    "success": "Thank you! We'll be in touch soon.",
+    "error": "Oops! Something went wrong. Please try again."
+  },
+  "footer": {
+    "rights": "© 2025 CatchyCompany. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

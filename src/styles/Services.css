@@ -1,0 +1,243 @@
+/* ██████╗ █████╗ ████████╗ ██████╗██╗  ██╗██╗   ██╗ ██████╗ ██████╗ ███╗   ███╗██████╗  █████╗ ███╗   ██╗██╗   ██╗
+   ██╔════╝██╔══██╗╚══██╔══╝██╔════╝██║  ██║╚██╗ ██╔╝██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔══██╗████╗  ██║╚██╗ ██╔╝
+   ██║     ███████║   ██║   ██║     ███████║ ╚████╔╝ ██║     ██║   ██║██╔████╔██║██████╔╝███████║██╔██╗ ██║ ╚████╔╝ 
+   ██║     ██╔══██║   ██║   ██║     ██╔══██║  ╚██╔╝  ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██╔══██║██║╚██╗██║  ╚██╔╝  
+   ╚██████╗██║  ██║   ██║   ╚██████╗██║  ██║   ██║   ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ██║  ██║██║ ╚████║   ██║   
+    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   */
+/* CODEX: Services Page Styles
+   This file contains styles for the Services page with support for both LTR and RTL layouts */
+
+/* Services Header */
+.services-header {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--bg-white) 100%);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+}
+
+.services-header-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.services-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-dark);
+}
+
+.services-header p {
+  font-size: 1.1rem;
+  color: var(--text-medium);
+}
+
+/* Detailed Services */
+.services-detailed {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background-color: var(--bg-white);
+}
+
+.service-detailed {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background-color: var(--bg-light);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--border-color);
+}
+
+.service-detailed.reverse {
+  flex-direction: row-reverse;
+}
+
+.service-image {
+  flex: 1;
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.service-image img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--box-shadow);
+}
+
+.service-info {
+  flex: 2;
+  padding: var(--spacing-md);
+}
+
+.service-info h2 {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-dark);
+}
+
+.service-long-description {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-medium);
+}
+
+.service-features h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-dark);
+}
+
+.service-features ul {
+  list-style-type: none;
+  padding-left: var(--spacing-md);
+}
+
+.service-features li {
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  padding-left: var(--spacing-md);
+  color: var(--text-medium);
+}
+
+.service-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Process Section */
+.process-section {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background-color: var(--bg-light);
+  text-align: center;
+}
+
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: var(--spacing-lg) auto 0;
+}
+
+.process-step {
+  flex: 1;
+  padding: var(--spacing-md);
+  position: relative;
+}
+
+.process-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  right: 0;
+  width: 50%;
+  height: 2px;
+  background-color: var(--primary-light);
+}
+
+.process-step:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 50%;
+  height: 2px;
+  background-color: var(--primary-light);
+}
+
+.step-number {
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 auto var(--spacing-md);
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--box-shadow);
+}
+
+.process-step h3 {
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--primary-dark);
+}
+
+.process-step p {
+  color: var(--text-medium);
+}
+
+/* Box-style design */
+.service-detailed {
+  border-left: 5px solid var(--primary-color);
+}
+
+.service-detailed.reverse {
+  border-left: none;
+  border-right: 5px solid var(--primary-color);
+}
+
+/* RTL Support */
+.services-page.rtl .service-features li {
+  padding-left: 0;
+  padding-right: var(--spacing-md);
+}
+
+.services-page.rtl .service-features li::before {
+  left: auto;
+  right: 0;
+}
+
+.services-page.rtl .service-detailed:not(.reverse) {
+  border-left: none;
+  border-right: 5px solid var(--primary-color);
+}
+
+.services-page.rtl .service-detailed.reverse {
+  border-right: none;
+  border-left: 5px solid var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .service-detailed,
+  .service-detailed.reverse {
+    flex-direction: column;
+  }
+  
+  .service-image {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .process-steps {
+    flex-direction: column;
+  }
+  
+  .process-step {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .process-step:not(:last-child)::after,
+  .process-step:not(:first-child)::before {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-header h1 {
+    font-size: 2rem;
+  }
+  
+  .service-info h2 {
+    font-size: 1.5rem;
+  }
+}

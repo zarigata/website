@@ -1,0 +1,327 @@
+/* ██████╗ █████╗ ████████╗ ██████╗██╗  ██╗██╗   ██╗ ██████╗ ██████╗ ███╗   ███╗██████╗  █████╗ ███╗   ██╗██╗   ██╗
+   ██╔════╝██╔══██╗╚══██╔══╝██╔════╝██║  ██║╚██╗ ██╔╝██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔══██╗████╗  ██║╚██╗ ██╔╝
+   ██║     ███████║   ██║   ██║     ███████║ ╚████╔╝ ██║     ██║   ██║██╔████╔██║██████╔╝███████║██╔██╗ ██║ ╚████╔╝ 
+   ██║     ██╔══██║   ██║   ██║     ██╔══██║  ╚██╔╝  ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██╔══██║██║╚██╗██║  ╚██╔╝  
+   ╚██████╗██║  ██║   ██║   ╚██████╗██║  ██║   ██║   ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ██║  ██║██║ ╚████║   ██║   
+    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   */
+/* CODEX: Main CSS File
+   This file contains global styles and CSS variables for the CatchyCompany website */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* CSS Variables - Based on the cat images color palette */
+:root {
+  /* Primary Colors */
+  --primary-color: #6eceb2; /* Pastel Green */
+  --primary-dark: #4aa08a;
+  --primary-light: #a2e0ce;
+  
+  /* Secondary Colors */
+  --secondary-color: #f5c0a7; /* Pastel Orange/Peach */
+  --secondary-dark: #d39c85;
+  --secondary-light: #ffdbc9;
+  
+  /* Accent Colors */
+  --accent-color: #b3a0d9; /* Pastel Purple */
+  --accent-dark: #8f7db7;
+  --accent-light: #d7c8f0;
+  
+  /* Neutral Colors */
+  --neutral-dark: #333333;
+  --neutral-medium: #666666;
+  --neutral-light: #999999;
+  --neutral-lighter: #f5f5f5;
+  
+  /* Text Colors */
+  --text-dark: #333333;
+  --text-medium: #666666;
+  --text-light: #999999;
+  --text-white: #ffffff;
+  
+  /* Background Colors */
+  --bg-white: #ffffff;
+  --bg-light: #f9f9f9;
+  --bg-dark: #333333;
+  
+  /* Border Colors */
+  --border-color: #e0e0e0;
+  
+  /* Shadow */
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  
+  /* Border Radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 24px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Font Families */
+  --font-primary-en: 'Poppins', sans-serif;
+  --font-primary-ar: 'Tajawal', sans-serif;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary-en);
+  color: var(--text-dark);
+  background-color: var(--bg-white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* RTL Support */
+body.rtl,
+.rtl {
+  font-family: var(--font-primary-ar);
+  direction: rtl;
+  text-align: right;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-dark);
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-medium);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+/* Buttons */
+.button,
+button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+}
+
+.button:hover,
+button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+}
+
+.button.secondary,
+.secondary-button {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.button.secondary:hover,
+.secondary-button:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+.cta-button {
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+  font-weight: 600;
+  padding: 0.85rem 2rem;
+  border-radius: var(--border-radius-md);
+  display: inline-block;
+  text-align: center;
+  transition: all var(--transition-normal);
+}
+
+.cta-button:hover {
+  background-color: var(--secondary-dark);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Section Styles */
+.section {
+  padding: var(--spacing-xl) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.section-header h2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-header p {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.rtl .text-right {
+  text-align: left;
+}
+
+.rtl .text-left {
+  text-align: right;
+}
+
+.mb-1 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-2 {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-3 {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mb-4 {
+  margin-bottom: var(--spacing-xl);
+}
+
+.mt-1 {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-2 {
+  margin-top: var(--spacing-md);
+}
+
+.mt-3 {
+  margin-top: var(--spacing-lg);
+}
+
+.mt-4 {
+  margin-top: var(--spacing-xl);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  .section {
+    padding: var(--spacing-lg) 0;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+  
+  .button,
+  button,
+  .cta-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
