@@ -1,0 +1,174 @@
+/* ██████╗ █████╗ ████████╗ ██████╗██╗  ██╗██╗   ██╗ ██████╗ ██████╗ ███╗   ███╗██████╗  █████╗ ███╗   ██╗██╗   ██╗
+   ██╔════╝██╔══██╗╚══██╔══╝██╔════╝██║  ██║╚██╗ ██╔╝██╔════╝██╔═══██╗████╗ ████║██╔══██╗██╔══██╗████╗  ██║╚██╗ ██╔╝
+   ██║     ███████║   ██║   ██║     ███████║ ╚████╔╝ ██║     ██║   ██║██╔████╔██║██████╔╝███████║██╔██╗ ██║ ╚████╔╝ 
+   ██║     ██╔══██║   ██║   ██║     ██╔══██║  ╚██╔╝  ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██╔══██║██║╚██╗██║  ╚██╔╝  
+   ╚██████╗██║  ██║   ██║   ╚██████╗██║  ██║   ██║   ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ██║  ██║██║ ╚████║   ██║   
+    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   */
+/* CODEX: Legal Pages Styles
+   This file contains styles for the Terms of Service and Privacy Policy pages
+   with support for both LTR and RTL layouts */
+
+/* Legal Page Container */
+.legal-page {
+  background-color: var(--bg-white);
+  min-height: 100vh;
+  padding: var(--spacing-xl) 0;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background-color: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--box-shadow);
+}
+
+/* Legal Header */
+.legal-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.legal-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.last-updated {
+  color: var(--text-light);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Legal Content */
+.legal-content {
+  color: var(--text-dark);
+  line-height: 1.8;
+}
+
+.legal-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.legal-section h2 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--border-color-light);
+}
+
+.legal-section p {
+  margin-bottom: var(--spacing-md);
+}
+
+.legal-section ul {
+  margin-bottom: var(--spacing-md);
+  padding-left: var(--spacing-xl);
+}
+
+.rtl .legal-section ul {
+  padding-left: 0;
+  padding-right: var(--spacing-xl);
+}
+
+.legal-section li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-info {
+  background-color: var(--bg-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  display: inline-block;
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+.contact-info a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* Privacy Policy Specific Styles */
+.privacy-highlight {
+  background-color: var(--primary-light);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  color: var(--primary-dark);
+  text-align: center;
+  margin: var(--spacing-md) 0;
+}
+
+.privacy-declaration {
+  background-color: var(--bg-light);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  border-left: 4px solid var(--primary-color);
+}
+
+.rtl .privacy-declaration {
+  border-left: none;
+  border-right: 4px solid var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: var(--spacing-md);
+  }
+  
+  .legal-header h1 {
+    font-size: 2rem;
+  }
+  
+  .legal-section h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Dark Mode Support */
+.dark-theme .legal-container {
+  background-color: var(--bg-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .legal-header h1 {
+  color: var(--primary-light);
+}
+
+.dark-theme .legal-content {
+  color: var(--text-white);
+}
+
+.dark-theme .legal-section h2 {
+  color: var(--primary-light);
+  border-bottom-color: var(--border-color-dark);
+}
+
+.dark-theme .privacy-highlight {
+  background-color: rgba(var(--primary-rgb), 0.2);
+  color: var(--primary-light);
+}
+
+.dark-theme .privacy-declaration,
+.dark-theme .contact-info {
+  background-color: var(--bg-darker);
+}
+
+.dark-theme .contact-info a {
+  color: var(--primary-light);
+}
+
+.dark-theme .contact-info a:hover {
+  color: var(--accent-light);
+}
