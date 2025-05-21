@@ -11,42 +11,37 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import '../styles/About.css';
 
-// Import team member images (using cat images as placeholders)
-import teamMember1 from '../assets/cat on coputer.png';
-import teamMember2 from '../assets/cat presenting thing.png';
-import teamMember3 from '../assets/Curious Green Cat with Question Mark.png';
+// Import AI image for the expertise card
+import aiImage from '../assets/cat on coputer.png'; // AI image
 
 const About = () => {
   const { t, i18n } = useTranslation();
 
-  // Team members data
-  const teamMembers = [
+  // International expertise data
+  const internationalExpertise = [
     {
       id: 1,
-      name: i18n.language === 'ar' ? 'أحمد الفيصل' : 'Ahmed Al-Faisal',
-      role: i18n.language === 'ar' ? 'المدير التنفيذي' : 'CEO',
-      image: teamMember1,
-      bio: i18n.language === 'ar'
-        ? 'خبير في التسويق الرقمي مع أكثر من 10 سنوات من الخبرة في السوق السعودي.'
-        : 'Digital marketing expert with over 10 years of experience in the Saudi market.'
+      title: i18n.language === 'ar' ? 'خبراء التسويق البرازيليين' : 'Brazilian Marketing Experts',
+      emoji: '🇧🇷',
+      description: i18n.language === 'ar'
+        ? 'نحن نفتخر بفريقنا من خبراء التسويق البرازيليين الذين يجلبون إبداعًا وابتكارًا فريدًا إلى السوق السعودي. مع سنوات من الخبرة في الحملات الرقمية الناجحة، يقدم فريقنا البرازيلي رؤى جديدة ونهجًا إبداعيًا للتسويق.'
+        : 'We pride ourselves on our team of Brazilian marketing experts who bring unique creativity and innovation to the Saudi market. With years of experience in successful digital campaigns, our Brazilian team offers fresh perspectives and creative approaches to marketing.'
     },
     {
       id: 2,
-      name: i18n.language === 'ar' ? 'سارة القحطاني' : 'Sara Al-Qahtani',
-      role: i18n.language === 'ar' ? 'مدير التكنولوجيا' : 'CTO',
-      image: teamMember2,
-      bio: i18n.language === 'ar'
-        ? 'متخصصة في الذكاء الاصطناعي وتطوير الويب مع خبرة واسعة في قيادة فرق التكنولوجيا.'
-        : 'AI and web development specialist with extensive experience leading technology teams.'
+      title: i18n.language === 'ar' ? 'مهندسو الذكاء الاصطناعي والأتمتة البرازيليون' : 'Brazilian AI & Automation Engineers',
+      emoji: '🤖',
+      description: i18n.language === 'ar'
+        ? 'يضم فريقنا بعضًا من أفضل مهندسي الذكاء الاصطناعي والأتمتة من البرازيل. بفضل خبرتهم التقنية المتقدمة وفهمهم العميق للتكنولوجيا الناشئة، يقدمون حلولًا مبتكرة تدفع النمو الرقمي لعملائنا.'
+        : 'Our team includes some of the best AI and automation engineers from Brazil. With their advanced technical expertise and deep understanding of emerging technologies, they deliver innovative solutions that drive digital growth for our clients.'
     },
     {
       id: 3,
-      name: i18n.language === 'ar' ? 'محمد العتيبي' : 'Mohammed Al-Otaibi',
-      role: i18n.language === 'ar' ? 'مدير التسويق' : 'Marketing Director',
-      image: teamMember3,
-      bio: i18n.language === 'ar'
-        ? 'استراتيجي تسويق مبدع مع فهم عميق للسوق السعودي والاتجاهات الرقمية.'
-        : 'Creative marketing strategist with a deep understanding of the Saudi market and digital trends.'
+      title: i18n.language === 'ar' ? 'الشراكة السعودية البرازيلية' : 'Saudi-Brazilian Partnership',
+      emoji: '🇸🇦🤝🇧🇷',
+      description: i18n.language === 'ar'
+        ? 'نحن نجمع بين أفضل ما في العالمين - المعرفة المحلية العميقة بالسوق السعودي والإبداع والابتكار التقني من البرازيل. هذه الشراكة الفريدة تمكننا من تقديم حلول مخصصة تلبي الاحتياجات المحددة لعملائنا في المملكة العربية السعودية.'
+        : 'We combine the best of both worlds - deep local knowledge of the Saudi market and technical creativity and innovation from Brazil. This unique partnership enables us to deliver tailored solutions that meet the specific needs of our clients in Saudi Arabia.'
     }
   ];
 
@@ -129,28 +124,46 @@ const About = () => {
         </div>
       </section>
 
-      {/* Our Team */}
-      <section className="team-section">
+      {/* International Expertise */}
+      <section className="international-expertise-section">
         <div className="section-header">
           <h2>
-            {i18n.language === 'ar' ? 'فريقنا' : 'Our Team'}
+            {i18n.language === 'ar' ? 'خبراتنا الدولية' : 'Our International Expertise'}
           </h2>
           <p>
             {i18n.language === 'ar'
-              ? 'تعرف على الخبراء الذين يقودون كاتشي كومباني'
-              : 'Meet the experts behind CatchyCompany'}
+              ? 'نجمع بين أفضل المواهب من البرازيل والمملكة العربية السعودية'
+              : 'Bringing together the best talent from Brazil and Saudi Arabia'}
           </p>
         </div>
-        <div className="team-members">
-          {teamMembers.map(member => (
-            <div key={member.id} className="team-member">
-              <div className="member-image">
-                <img src={member.image} alt={member.name} />
+        
+        {/* Flags Animation Container */}
+        <div className="flags-animation">
+          <div className="flag saudi-flag">
+            <div className="flag-emoji">🇸🇦</div>
+            <h3>{i18n.language === 'ar' ? 'المملكة العربية السعودية' : 'Saudi Arabia'}</h3>
+          </div>
+          <div className="plus-sign">+</div>
+          <div className="flag brazil-flag">
+            <div className="flag-emoji">🇧🇷</div>
+            <h3>{i18n.language === 'ar' ? 'البرازيل' : 'Brazil'}</h3>
+          </div>
+          <div className="equals-sign">=</div>
+          <div className="partnership-result">
+            <h3>{i18n.language === 'ar' ? 'شراكة مثالية' : 'Perfect Partnership'}</h3>
+          </div>
+        </div>
+        
+        {/* Expertise Cards */}
+        <div className="expertise-cards">
+          {internationalExpertise.map(item => (
+            <div key={item.id} className="expertise-card">
+              <div className="expertise-image">
+                <div className="expertise-emoji">{item.emoji}</div>
               </div>
-              <div className="member-info">
-                <h3>{member.name}</h3>
-                <h4>{member.role}</h4>
-                <p>{member.bio}</p>
+              <div className="expertise-info">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </div>
             </div>
           ))}
