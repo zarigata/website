@@ -4,56 +4,49 @@
 // ██║     ██╔══██║   ██║   ██║     ██╔══██║  ╚██╔╝  ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██╔══██║██║╚██╗██║  ╚██╔╝  
 // ╚██████╗██║  ██║   ██║   ╚██████╗██║  ██║   ██║   ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ██║  ██║██║ ╚████║   ██║   
 //  ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   
-// CODEX: Main App Component
-// This file serves as the main component for the CatchyCompany website
-// It handles routing and language direction based on the current language
+// CODEX: Theme Context
+// This context manages the theme state (light/dark mode) across the application
+// It provides theme toggling functionality and persists user preference
 
-import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { ThemeProvider } from './context/ThemeContext';
+import React, { createContext, useState, useEffect } from 'react';
 
-// Components
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+// Create context
+export const ThemeContext = createContext();
 
-// Pages
-import Home from './pages/Home';
-import Services from './pages/Services';
-import About from './pages/About';
-import Portfolio from './pages/Portfolio';
-import Contact from './pages/Contact';
+// Theme provider component
+export const ThemeProvider = ({ children }) => {
+  // Check if user has a theme preference in localStorage
+  const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme ? savedTheme : 'light';
+  };
 
-// Styles
-import './styles/App.css';
+  // State to track current theme
+  const [theme, setTheme] = useState(getInitialTheme);
 
-function App() {
-  const { i18n } = useTranslation();
-  
-  // Set document direction based on language
+  // Apply theme class to document when theme changes
   useEffect(() => {
-    // Arabic is RTL (Right-to-Left)
-    document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = i18n.language;
-  }, [i18n.language]);
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  // Toggle between light and dark themes
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  // Context value
+  const contextValue = {
+    theme,
+    toggleTheme,
+    isDarkMode: theme === 'dark'
+  };
 
   return (
-    <ThemeProvider>
-      <div className={`app ${i18n.language === 'ar' ? 'rtl' : 'ltr'}`}>
-        <Navbar />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <ThemeContext.Provider value={contextValue}>
+      {children}
+    </ThemeContext.Provider>
   );
-}
+};
 
-export default App;
+export default ThemeProvider;

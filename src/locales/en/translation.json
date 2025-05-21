@@ -3,7 +3,7 @@
     "home": "Home",
     "services": "Services",
     "about": "About Us",
-    "portfolio": "Portfolio",
+    "portfolio": "Blog",
     "contact": "Contact Us",
     "language": "العربية"
   },
@@ -35,8 +35,12 @@
     "vision": "To be the premier digital transformation partner for businesses in Saudi Arabia, known for excellence, innovation, and results."
   },
   "portfolio": {
-    "title": "Our Work",
-    "viewProject": "View Project"
+    "title": "CatchyCompany Blog",
+    "viewProject": "View Project",
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "sources": "Sources",
+    "blogDescription": "Explore the latest trends and insights on AI, marketing, and web development in the Saudi market."
   },
   "contact": {
     "title": "Get in Touch",

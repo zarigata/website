@@ -15,7 +15,13 @@
   border-bottom: 5px solid var(--primary-color);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
+}
+
+/* Dark mode styles for services header */
+[data-theme="dark"] .services-header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--bg-dark) 100%);
+  border-bottom: 5px solid var(--primary-color);
 }
 
 .services-header::before {
@@ -79,15 +85,21 @@
 
 /* Add specific styling for each service card */
 #ai {
-  border-top: 5px solid #00a67e; /* Green for AI */
+  border-top: 5px solid var(--pastel-mint); /* Pastel Green for AI */
 }
 
 #marketing {
-  border-top: 5px solid #e74c3c; /* Red for Marketing */
+  border-top: 5px solid var(--pastel-pink); /* Pastel Pink for Marketing */
 }
 
 #web {
-  border-top: 5px solid #3498db; /* Blue for Web Development */
+  border-top: 5px solid var(--pastel-blue); /* Pastel Blue for Web Development */
+}
+
+/* Dark mode service card styles */
+[data-theme="dark"] .service-detailed {
+  background-color: var(--bg-dark);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .service-detailed.reverse {
@@ -122,7 +134,7 @@
   top: 20px;
   right: 0;
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-white);
   padding: 8px 16px;
   font-weight: bold;
   font-size: 0.9rem;
@@ -130,6 +142,7 @@
   border-bottom-left-radius: 20px;
   box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
   z-index: 2;
+  backdrop-filter: blur(5px);
 }
 
 .rtl .service-badge {
@@ -173,7 +186,7 @@
 
 .cta-button {
   background-color: var(--primary-color);
-  color: white;
+  color: var(--text-white);
   border: none;
   padding: 12px 24px;
   font-size: 1rem;
@@ -182,6 +195,12 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(45deg, var(--primary-color), var(--primary-light));
+}
+
+[data-theme="dark"] .cta-button {
+  background-image: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .cta-button:hover {
@@ -263,6 +282,13 @@
   border-radius: 8px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 3px solid var(--primary-light);
+}
+
+[data-theme="dark"] .saudi-features li {
+  background-color: var(--bg-dark);
+  border-left: 3px solid var(--primary-dark);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .saudi-features li:hover {
@@ -305,7 +331,11 @@
   overflow: hidden;
   border-top: 5px solid var(--primary-color);
   border-bottom: 5px solid var(--primary-color);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
+}
+
+[data-theme="dark"] .process-section {
+  background-color: var(--bg-dark);
 }
 
 .process-section::before {
@@ -360,12 +390,17 @@
   min-width: 250px;
   padding: var(--spacing-lg);
   position: relative;
-  background-color: white;
+  background-color: var(--bg-white);
   border-radius: 10px;
   margin: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-bottom: 4px solid var(--primary-color);
+}
+
+[data-theme="dark"] .process-step {
+  background-color: var(--neutral-lighter);
+  border-bottom: 4px solid var(--primary-dark);
 }
 
 .process-step:hover {
@@ -411,21 +446,21 @@
   border: 5px solid white;
 }
 
-/* Add specific styling for each step number */
+/* Add specific styling for each step number with pastel colors */
 .process-step:nth-child(1) .step-number {
-  background-color: #00a67e; /* Green */
+  background-color: var(--pastel-mint); /* Pastel Green */
 }
 
 .process-step:nth-child(2) .step-number {
-  background-color: #e74c3c; /* Red */
+  background-color: var(--pastel-pink); /* Pastel Pink */
 }
 
 .process-step:nth-child(3) .step-number {
-  background-color: #3498db; /* Blue */
+  background-color: var(--pastel-blue); /* Pastel Blue */
 }
 
 .process-step:nth-child(4) .step-number {
-  background-color: #f39c12; /* Orange */
+  background-color: var(--pastel-yellow); /* Pastel Yellow */
 }
 
 .process-step h3 {

@@ -8,14 +8,16 @@
 // This component handles site navigation and language switching
 // It supports both Arabic (RTL) and English (LTR) layouts
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../context/ThemeContext';
 import '../styles/Navbar.css';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Toggle mobile menu
@@ -75,6 +77,15 @@ const Navbar = () => {
           <li className="nav-item language-switch">
             <button onClick={changeLanguage} className="language-btn">
               {t('navigation.language')}
+            </button>
+          </li>
+          <li className="nav-item theme-switch">
+            <button onClick={toggleTheme} className="theme-btn">
+              {theme === 'dark' ? (
+                <i className="fas fa-sun"></i>
+              ) : (
+                <i className="fas fa-moon"></i>
+              )}
             </button>
           </li>
         </ul>

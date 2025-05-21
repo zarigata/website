@@ -4,97 +4,40 @@
 // ██║     ██╔══██║   ██║   ██║     ██╔══██║  ╚██╔╝  ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██╔══██║██║╚██╗██║  ╚██╔╝  
 // ╚██████╗██║  ██║   ██║   ╚██████╗██║  ██║   ██║   ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ██║  ██║██║ ╚████║   ██║   
 //  ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   
-// CODEX: Portfolio Page Component
-// This component showcases CatchyCompany's previous work and projects
-// It displays projects in a grid layout with filtering options
+// CODEX: Blog Page Component
+// This component displays a mini blog with posts about Saudi market topics
+// It features articles on AI, marketing, and web development trends in Saudi Arabia
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { ThemeContext } from '../context/ThemeContext';
 import '../styles/Portfolio.css';
 
-// Import images
-import projectImage1 from '../assets/cat on coputer.png';
-import projectImage2 from '../assets/cat presenting thing.png';
-import projectImage3 from '../assets/Curious Green Cat with Question Mark.png';
+// Import blog posts data
+import blogPosts from '../data/blogPosts';
 
 const Portfolio = () => {
   const { t, i18n } = useTranslation();
+  const { theme } = useContext(ThemeContext);
   const [filter, setFilter] = useState('all');
+  const [selectedPost, setSelectedPost] = useState(null);
+  
+  // Handle post selection
+  const handlePostClick = (post) => {
+    setSelectedPost(post);
+    window.scrollTo(0, 0);
+  };
+  
+  // Go back to post list
+  const handleBackClick = () => {
+    setSelectedPost(null);
+  };
 
-  // Portfolio projects data
-  const projects = [
-    {
-      id: 1,
-      title: i18n.language === 'ar' ? 'موقع شركة التكنولوجيا السعودية' : 'Saudi Tech Company Website',
-      category: 'web',
-      image: projectImage1,
-      description: i18n.language === 'ar'
-        ? 'تصميم وتطوير موقع ويب متجاوب لشركة تكنولوجيا رائدة في المملكة العربية السعودية.'
-        : 'Design and development of a responsive website for a leading technology company in Saudi Arabia.',
-      client: i18n.language === 'ar' ? 'تك سعودي' : 'Saudi Tech',
-      year: '2024'
-    },
-    {
-      id: 2,
-      title: i18n.language === 'ar' ? 'حملة تسويق رقمي للعلامة التجارية الاستهلاكية' : 'Digital Marketing Campaign for Consumer Brand',
-      category: 'marketing',
-      image: projectImage2,
-      description: i18n.language === 'ar'
-        ? 'استراتيجية تسويق رقمي شاملة أدت إلى زيادة بنسبة 150٪ في مشاركة العملاء وزيادة المبيعات بنسبة 75٪.'
-        : 'Comprehensive digital marketing strategy that resulted in a 150% increase in customer engagement and 75% growth in sales.',
-      client: i18n.language === 'ar' ? 'منتجات النجمة' : 'Star Products',
-      year: '2024'
-    },
-    {
-      id: 3,
-      title: i18n.language === 'ar' ? 'روبوت محادثة ذكي للخدمات المالية' : 'AI Chatbot for Financial Services',
-      category: 'ai',
-      image: projectImage3,
-      description: i18n.language === 'ar'
-        ? 'تطوير روبوت محادثة مدعوم بالذكاء الاصطناعي لمؤسسة مالية، مما أدى إلى تحسين خدمة العملاء وتقليل وقت الاستجابة.'
-        : 'Development of an AI-powered chatbot for a financial institution, resulting in improved customer service and reduced response time.',
-      client: i18n.language === 'ar' ? 'بنك الاستثمار السعودي' : 'Saudi Investment Bank',
-      year: '2023'
-    },
-    {
-      id: 4,
-      title: i18n.language === 'ar' ? 'تطبيق التجارة الإلكترونية' : 'E-commerce Application',
-      category: 'web',
-      image: projectImage1,
-      description: i18n.language === 'ar'
-        ? 'تصميم وتطوير تطبيق تجارة إلكترونية كامل الميزات لبائع تجزئة سعودي.'
-        : 'Design and development of a full-featured e-commerce application for a Saudi retailer.',
-      client: i18n.language === 'ar' ? 'متجر الأناقة' : 'Elegance Store',
-      year: '2023'
-    },
-    {
-      id: 5,
-      title: i18n.language === 'ar' ? 'استراتيجية وسائل التواصل الاجتماعي للعلامة التجارية الفاخرة' : 'Social Media Strategy for Luxury Brand',
-      category: 'marketing',
-      image: projectImage2,
-      description: i18n.language === 'ar'
-        ? 'تطوير وتنفيذ استراتيجية وسائل التواصل الاجتماعي لعلامة تجارية فاخرة تستهدف السوق السعودي.'
-        : 'Development and implementation of a social media strategy for a luxury brand targeting the Saudi market.',
-      client: i18n.language === 'ar' ? 'فخامة العربية' : 'Arabian Luxury',
-      year: '2023'
-    },
-    {
-      id: 6,
-      title: i18n.language === 'ar' ? 'نظام تحليلات البيانات للبيع بالتجزئة' : 'Data Analytics System for Retail',
-      category: 'ai',
-      image: projectImage3,
-      description: i18n.language === 'ar'
-        ? 'تطوير نظام تحليلات مدعوم بالذكاء الاصطناعي لسلسلة متاجر بيع بالتجزئة لتحسين المخزون وتوقعات المبيعات.'
-        : 'Development of an AI-powered analytics system for a retail chain to optimize inventory and sales forecasting.',
-      client: i18n.language === 'ar' ? 'متاجر المستقبل' : 'Future Stores',
-      year: '2022'
-    }
-  ];
-
-  // Filter projects based on selected category
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+  // Filter blog posts based on selected category
+  const filteredPosts = filter === 'all' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === filter);
 
   // Category labels
   const categories = {
@@ -106,19 +49,52 @@ const Portfolio = () => {
 
   return (
     <div className={`portfolio-page ${i18n.language === 'ar' ? 'rtl' : 'ltr'}`}>
-      {/* Portfolio Header */}
-      <section className="portfolio-header">
-        <div className="portfolio-header-content">
-          <h1>{t('portfolio.title')}</h1>
-          <p>
-            {i18n.language === 'ar'
-              ? 'استكشف مجموعة مختارة من مشاريعنا الناجحة في مجالات الذكاء الاصطناعي والتسويق وتطوير الويب.'
-              : 'Explore a selection of our successful projects in AI, marketing, and web development.'}
-          </p>
+      {selectedPost ? (
+        // Single Blog Post View
+        <div className="blog-post-view">
+          <button className="back-button" onClick={handleBackClick}>
+            <i className="fas fa-arrow-left"></i> 
+            {t('portfolio.backToBlog')}
+          </button>
+          
+          <div className="blog-post-header">
+            <h1>{selectedPost.title[i18n.language === 'ar' ? 'ar' : 'en']}</h1>
+            <div className="post-meta">
+              <span className="post-date"><i className="far fa-calendar-alt"></i> {selectedPost.date}</span>
+              <span className="post-author"><i className="far fa-user"></i> {selectedPost.author[i18n.language === 'ar' ? 'ar' : 'en']}</span>
+              <span className="post-category"><i className="far fa-folder"></i> {categories[selectedPost.category]}</span>
+            </div>
+          </div>
+          
+          <div className="blog-post-image">
+            <img src={selectedPost.image} alt={selectedPost.title[i18n.language === 'ar' ? 'ar' : 'en']} />
+          </div>
+          
+          <div className="blog-post-content" dangerouslySetInnerHTML={{ __html: selectedPost.content[i18n.language === 'ar' ? 'ar' : 'en'] }}></div>
+          
+          <div className="blog-post-sources">
+            <h3>{t('portfolio.sources')}</h3>
+            <ul>
+              {selectedPost.sources.map((source, index) => (
+                <li key={index}>
+                  <a href={source.url} target="_blank" rel="noopener noreferrer">{source.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </section>
+      ) : (
+        // Blog List View
+        <>
+          {/* Blog Header */}
+          <section className="portfolio-header">
+            <div className="portfolio-header-content">
+              <h1>{t('portfolio.title')}</h1>
+              <p>{t('portfolio.blogDescription')}</p>
+            </div>
+          </section>
 
-      {/* Portfolio Filters */}
+      {/* Blog Filters */}
       <section className="portfolio-filters">
         <div className="filter-buttons">
           {Object.entries(categories).map(([key, value]) => (
@@ -133,39 +109,26 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Portfolio Projects Grid */}
-      <section className="portfolio-grid">
-        {filteredProjects.map(project => (
-          <div key={project.id} className="portfolio-item">
-            <div className="portfolio-image">
-              <img src={project.image} alt={project.title} />
-              <div className="portfolio-overlay">
-                <div className="overlay-content">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="project-details">
-                    <p>
-                      <strong>
-                        {i18n.language === 'ar' ? 'العميل: ' : 'Client: '}
-                      </strong>
-                      {project.client}
-                    </p>
-                    <p>
-                      <strong>
-                        {i18n.language === 'ar' ? 'السنة: ' : 'Year: '}
-                      </strong>
-                      {project.year}
-                    </p>
-                  </div>
-                  <button className="view-project-btn">
-                    {t('portfolio.viewProject')}
-                  </button>
-                </div>
+      {/* Blog Posts Grid */}
+      <section className="blog-grid">
+        {filteredPosts.map(post => (
+          <div key={post.id} className="blog-card" onClick={() => handlePostClick(post)}>
+            <div className="blog-image">
+              <img src={post.image} alt={post.title[i18n.language === 'ar' ? 'ar' : 'en']} />
+              <div className="blog-category">
+                {categories[post.category]}
               </div>
             </div>
-            <div className="portfolio-info">
-              <h3>{project.title}</h3>
-              <p>{categories[project.category]}</p>
+            <div className="blog-info">
+              <h3>{post.title[i18n.language === 'ar' ? 'ar' : 'en']}</h3>
+              <p className="blog-summary">{post.summary[i18n.language === 'ar' ? 'ar' : 'en']}</p>
+              <div className="blog-meta">
+                <span className="blog-date">{post.date}</span>
+                <span className="blog-author">{post.author[i18n.language === 'ar' ? 'ar' : 'en']}</span>
+              </div>
+              <button className="read-more-btn">
+                {t('portfolio.readMore')}
+              </button>
             </div>
           </div>
         ))}
@@ -176,19 +139,21 @@ const Portfolio = () => {
         <div className="cta-content">
           <h2>
             {i18n.language === 'ar'
-              ? 'هل أنت مستعد لبدء مشروعك التالي؟'
-              : 'Ready to start your next project?'}
+              ? 'هل تحتاج إلى حلول مخصصة للسوق السعودي؟'
+              : 'Need Tailored Solutions for the Saudi Market?'}
           </h2>
           <p>
             {i18n.language === 'ar'
-              ? 'دعنا نساعدك في تحقيق رؤيتك الرقمية.'
-              : 'Let us help you bring your digital vision to life.'}
+              ? 'نحن خبراء في تطوير حلول مخصصة للذكاء الاصطناعي والتسويق الرقمي وتطوير الويب للسوق السعودي.'
+              : 'We specialize in developing custom AI, digital marketing, and web development solutions for the Saudi market.'}
           </p>
-          <button className="cta-button">
+          <Link to="/contact" className="cta-button">
             {i18n.language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
-          </button>
+          </Link>
         </div>
       </section>
+        </>
+      )}
     </div>
   );
 };

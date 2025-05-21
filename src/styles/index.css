@@ -12,43 +12,49 @@
 
 /* CSS Variables - Based on the cat images color palette */
 :root {
-  /* Primary Colors */
-  --primary-color: #6eceb2; /* Pastel Green */
-  --primary-dark: #4aa08a;
-  --primary-light: #a2e0ce;
+  /* Primary Colors - More Pastel */
+  --primary-color: #8bdac9; /* Softer Pastel Green */
+  --primary-dark: #5ebca6;
+  --primary-light: #b5e8dc;
   
-  /* Secondary Colors */
-  --secondary-color: #f5c0a7; /* Pastel Orange/Peach */
-  --secondary-dark: #d39c85;
-  --secondary-light: #ffdbc9;
+  /* Secondary Colors - More Pastel */
+  --secondary-color: #ffd3c1; /* Softer Pastel Peach */
+  --secondary-dark: #f0b5a0;
+  --secondary-light: #ffe6dd;
   
-  /* Accent Colors */
-  --accent-color: #b3a0d9; /* Pastel Purple */
-  --accent-dark: #8f7db7;
-  --accent-light: #d7c8f0;
+  /* Accent Colors - More Pastel */
+  --accent-color: #c7b8e5; /* Softer Pastel Purple */
+  --accent-dark: #a596cc;
+  --accent-light: #e0d6f5;
+  
+  /* Additional Pastel Colors */
+  --pastel-blue: #a4d4f0; /* Pastel Blue */
+  --pastel-yellow: #fff2b2; /* Pastel Yellow */
+  --pastel-pink: #ffccd5; /* Pastel Pink */
+  --pastel-mint: #c1e8d0; /* Pastel Mint */
   
   /* Neutral Colors */
-  --neutral-dark: #333333;
-  --neutral-medium: #666666;
-  --neutral-light: #999999;
-  --neutral-lighter: #f5f5f5;
+  --neutral-dark: #444444;
+  --neutral-medium: #777777;
+  --neutral-light: #aaaaaa;
+  --neutral-lighter: #f8f8f8;
   
   /* Text Colors */
-  --text-dark: #333333;
-  --text-medium: #666666;
-  --text-light: #999999;
+  --text-dark: #444444;
+  --text-medium: #777777;
+  --text-light: #aaaaaa;
   --text-white: #ffffff;
   
   /* Background Colors */
   --bg-white: #ffffff;
   --bg-light: #f9f9f9;
-  --bg-dark: #333333;
+  --bg-dark: #444444;
   
   /* Border Colors */
-  --border-color: #e0e0e0;
+  --border-color: #e8e8e8;
   
   /* Shadow */
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
   
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -71,6 +77,53 @@
   /* Font Families */
   --font-primary-en: 'Poppins', sans-serif;
   --font-primary-ar: 'Tajawal', sans-serif;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  /* Primary Colors - Dark Mode Pastel */
+  --primary-color: #6ebcab; /* Darker Pastel Green */
+  --primary-dark: #4d9e8d;
+  --primary-light: #8fd0c3;
+  
+  /* Secondary Colors - Dark Mode Pastel */
+  --secondary-color: #e5b5a3; /* Darker Pastel Peach */
+  --secondary-dark: #c69885;
+  --secondary-light: #f0c7b9;
+  
+  /* Accent Colors - Dark Mode Pastel */
+  --accent-color: #a99cd0; /* Darker Pastel Purple */
+  --accent-dark: #8c7eb2;
+  --accent-light: #c0b3e0;
+  
+  /* Additional Pastel Colors - Dark Mode */
+  --pastel-blue: #8abadf; /* Darker Pastel Blue */
+  --pastel-yellow: #e5d89e; /* Darker Pastel Yellow */
+  --pastel-pink: #e5b3bc; /* Darker Pastel Pink */
+  --pastel-mint: #a7d0b8; /* Darker Pastel Mint */
+  
+  /* Neutral Colors - Dark Mode */
+  --neutral-dark: #e0e0e0;
+  --neutral-medium: #b0b0b0;
+  --neutral-light: #808080;
+  --neutral-lighter: #2a2a2a;
+  
+  /* Text Colors - Dark Mode */
+  --text-dark: #e0e0e0;
+  --text-medium: #b0b0b0;
+  --text-light: #808080;
+  --text-white: #f0f0f0;
+  
+  /* Background Colors - Dark Mode */
+  --bg-white: #2a2a2a;
+  --bg-light: #333333;
+  --bg-dark: #1a1a1a;
+  
+  /* Border Colors - Dark Mode */
+  --border-color: #444444;
+  
+  /* Shadow - Dark Mode */
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Reset & Base Styles */
