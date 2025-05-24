@@ -1,6 +1,9 @@
 # CatchyCompany Website
 
-A bilingual (Arabic/English) marketing and digital consultancy website for the Saudi market. This project is built with React and is ready to be deployed to GitHub Pages.
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-brightgreen)](https://catchycompany.sa)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A professional bilingual (Arabic/English) marketing and digital consultancy website for the Saudi market. This project is built with React and is deployed to GitHub Pages with a custom domain.
 
 ## 🌟 Features
 
@@ -43,6 +46,61 @@ Make sure you have Node.js (v14 or later) and npm installed on your machine.
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## 🚀 Deployment to GitHub Pages
+
+### Prerequisites
+- GitHub account
+- Repository set up on GitHub
+- Custom domain (optional but recommended)
+
+### Steps to Deploy
+
+1. **Build the project**:
+   ```bash
+   npm run build
+   ```
+
+2. **Deploy to GitHub Pages**:
+   ```bash
+   npm run deploy
+   ```
+   This will create a `gh-pages` branch and push the built files to it.
+
+3. **Set up GitHub Pages**:
+   - Go to your repository on GitHub
+   - Click on "Settings" > "Pages"
+   - Under "Source", select "gh-pages" branch and "/ (root)" folder
+   - Click "Save"
+
+4. **Set up Custom Domain (Optional)**:
+   - In the same GitHub Pages settings, enter your custom domain (e.g., `catchycompany.sa`)
+   - Add a CNAME file to your `public` folder with your domain:
+     ```
+     catchycompany.sa
+     ```
+   - Update DNS settings with your domain provider to point to GitHub Pages IPs:
+     ```
+     185.199.108.153
+     185.199.109.153
+     185.199.110.153
+     185.199.111.153
+     ```
+   - Wait for DNS propagation (may take up to 48 hours)
+
+5. **Enable HTTPS (Recommended)**:
+   - In GitHub Pages settings, check "Enforce HTTPS" once the domain is properly configured
+
+## 🔒 Security Considerations
+
+- Keep your dependencies updated
+- Use environment variables for sensitive information
+- Regularly backup your content
+- Monitor for security vulnerabilities using `npm audit`
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🌐 Virtual Environment Setup
 

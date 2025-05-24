@@ -1,0 +1,17 @@
+/* TEAM */
+  Site: catchycompany.sa
+  Location: Saudi Arabia
+  Contact: info@catchycompany.sa
+
+/* THANKS */
+  Thanks to all our clients and partners for their trust and support.
+
+/* SITE */
+  Last update: 2025/05/24
+  Language: English/Arabic
+  Standards: HTML5, CSS3, JavaScript (ES6+)
+  Components: React, React Router, i18next
+  Software: Visual Studio Code, GitHub, Node.js
+
+/* NOTE */
+  Made with ❤️ in Saudi Arabia
