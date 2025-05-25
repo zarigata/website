@@ -854,17 +854,14 @@
     "yocto-queue": "^0.1.0"
   },
   "devDependencies": {
-    "date-fns": "^4.1.0",
     "gh-pages": "^6.3.0"
   },
-  "homepage": "https://catchycompany.sa",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "update-sitemap": "node scripts/update-sitemap.js",
-    "predeploy": "npm run build && npm run update-sitemap",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "repository": {
@@ -877,7 +874,8 @@
   "bugs": {
     "url": "https://github.com/zarigata/website/issues"
   },
-  "description": "CatchyCompany - Digital Marketing & Web Design Agency in Saudi Arabia. We help businesses establish a strong online presence with tailored digital solutions.",
+  "homepage": "https://zarigata.github.io/website/",
+  "description": "",
   "browserslist": {
     "production": [
       ">0.2%",
