@@ -1,0 +1,5 @@
+# Jekyll configuration
+# This file ensures Jekyll is disabled
+auto: false
+include: []
+plugins: []

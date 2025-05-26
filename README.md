@@ -1,6 +1,9 @@
 # CatchyCompany Website
 
-A bilingual (Arabic/English) marketing and digital consultancy website for the Saudi market. This project is built with React and is ready to be deployed to GitHub Pages.
+> **Important:** This is the source code for the CatchyCompany website. The live website is available at:  
+> 🔗 [https://zarigata.github.io/website](https://zarigata.github.io/website)
+
+A bilingual (Arabic/English) marketing and digital consultancy website for the Saudi market. This project is built with React and deployed to GitHub Pages.
 
 ## 🌟 Features
 
