@@ -22,9 +22,25 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
+
+      - name: Generate package-lock.json if missing
+        run: |
+          if [ ! -f package-lock.json ]; then
+            npm install --package-lock-only
+          fi
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci --no-audit
+          npm cache clean --force
+          
+      - name: Verify node_modules
+        run: |
+          if [ ! -d "node_modules" ]; then
+            echo "node_modules not found, installing dependencies..."
+            npm install
+          fi
 
       - name: Build
         run: |
