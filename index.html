@@ -1,83 +1,356 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CatchyCompany - Digital Marketing & Web Design</title>
+    <title>CatchyCompany | Digital Marketing & Web Design</title>
+    <meta name="description" content="CatchyCompany - Your partner in digital marketing and web design solutions. Specializing in AI, Marketing, and website building for the Saudi market.">
     <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --primary: #8bdac9;
+            --primary-dark: #5ebca6;
+            --primary-light: #b5e8dc;
+            --accent: #c7b8e5;
+            --text-dark: #2c3e50;
+            --text-light: #555;
+            --bg-light: #f8f9ff;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
+            font-family: 'Poppins', 'Tajawal', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--bg-light) 0%, #f0f4ff 100%);
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            min-height: 80vh;
+            overflow-x: hidden;
         }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            padding: 1.5rem 0;
+            position: relative;
+            z-index: 10;
+        }
+
         .logo {
-            max-width: 200px;
-            margin: 0 auto 2rem;
-        }
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-        }
-        p {
-            margin-bottom: 1.5rem;
-            color: #555;
-        }
-        .btn {
-            display: inline-block;
-            background: #8bdac9;
-            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
             text-decoration: none;
-            padding: 0.8rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
             border-radius: 50px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid #8bdac9;
-            margin-top: 1rem;
-        }
-        .btn:hover {
-            background: transparent;
-            color: #8bdac9;
             text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            border: 2px solid transparent;
+            gap: 0.5rem;
         }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            background: var(--primary-dark);
+        }
+
         .btn-outline {
             background: transparent;
-            color: #8bdac9;
-            margin-left: 1rem;
+            border-color: var(--primary);
+            color: var(--primary);
         }
+
         .btn-outline:hover {
-            background: #8bdac9;
-            color: #fff;
+            background: rgba(139, 218, 201, 0.1);
+            transform: translateY(-3px);
         }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: left;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .feature i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .feature p {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* Decorative Elements */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary);
+            top: -100px;
+            right: -100px;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            bottom: 50px;
+            right: 100px;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            background: var(--primary-light);
+            bottom: -50px;
+            left: -50px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .hero {
+                padding: 3rem 0;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 100%;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
             .btn {
-                display: block;
-                margin: 1rem auto;
-                max-width: 200px;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto 1rem;
             }
-            .btn-outline {
-                margin-left: 0;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
             }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* RTL Support */
+        [dir="rtl"] {
+            font-family: 'Tajawal', 'Poppins', sans-serif;
+        }
+
+        [dir="rtl"] .buttons {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .feature {
+            text-align: right;
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>Welcome to CatchyCompany</h1>
-        <p>Your partner in digital marketing and web design solutions</p>
-        <div>
-            <a href="https://zarigata.github.io/website" class="btn">Visit Our Website</a>
-            <a href="https://github.com/zarigata/website" class="btn btn-outline">View on GitHub</a>
-        </div>
+    <div class="container">
+        <header>
+            <a href="#" class="logo">
+                <i class="fas fa-cat"></i>
+                <span>CatchyCompany</span>
+            </a>
+        </header>
+
+        <main class="hero">
+            <div class="hero-content">
+                <h1>Transforming Ideas Into Digital Success</h1>
+                <p>Specializing in AI, Marketing, and website building for the Saudi market. We create stunning digital experiences that drive results.</p>
+                
+                <div class="buttons">
+                    <a href="https://zarigata.github.io/website" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        <span>Launch Website</span>
+                    </a>
+                    <a href="https://github.com/zarigata/website" class="btn btn-outline">
+                        <i class="fab fa-github"></i>
+                        <span>View on GitHub</span>
+                    </a>
+                </div>
+
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-paint-brush"></i>
+                        <h3>Beautiful Design</h3>
+                        <p>Modern, responsive designs that work on all devices</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Data-Driven</h3>
+                        <p>Strategies based on analytics and market research</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-globe"></i>
+                        <h3>Bilingual</h3>
+                        <p>Fully supported in both English and Arabic</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Decorative Shapes -->
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </main>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CatchyCompany. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle RTL for Arabic language
+        document.documentElement.dir = window.location.search.includes('lang=ar') ? 'rtl' : 'ltr';
+    </script>
 </body>
 </html>
