@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=https://zarigata.github.io/website">
-    <title>Redirecting to CatchyCompany Website</title>
+    <title>CatchyCompany - Digital Marketing & Web Design</title>
     <meta name="robots" content="noindex, nofollow">
     <style>
         body {
@@ -16,40 +15,69 @@
             margin: 0 auto;
             padding: 2rem;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 80vh;
         }
-        a {
-            color: #0366d6;
+        .logo {
+            max-width: 200px;
+            margin: 0 auto 2rem;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        .btn {
+            display: inline-block;
+            background: #8bdac9;
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #8bdac9;
+            margin-top: 1rem;
+        }
+        .btn:hover {
+            background: transparent;
+            color: #8bdac9;
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
+        .btn-outline {
+            background: transparent;
+            color: #8bdac9;
+            margin-left: 1rem;
         }
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border-left-color: #0366d6;
-            animation: spin 1s linear infinite;
-            margin: 2rem auto;
+        .btn-outline:hover {
+            background: #8bdac9;
+            color: #fff;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @media (max-width: 768px) {
+            .btn {
+                display: block;
+                margin: 1rem auto;
+                max-width: 200px;
+            }
+            .btn-outline {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Redirecting to CatchyCompany Website</h1>
-    <div class="spinner"></div>
-    <p>Please wait while we redirect you to our website...</p>
-    <p>If you are not redirected automatically, <a href="https://zarigata.github.io/website">click here</a>.</p>
-    
-    <script>
-        // Fallback redirect in case meta refresh doesn't work
-        setTimeout(function() {
-            window.location.href = 'https://zarigata.github.io/website';
-        }, 2000);
-    </script>
+    <div>
+        <h1>Welcome to CatchyCompany</h1>
+        <p>Your partner in digital marketing and web design solutions</p>
+        <div>
+            <a href="https://zarigata.github.io/website" class="btn">Visit Our Website</a>
+            <a href="https://github.com/zarigata/website" class="btn btn-outline">View on GitHub</a>
+        </div>
+    </div>
 </body>
 </html>
