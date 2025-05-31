@@ -21,26 +21,38 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
 
-      - name: Install dependencies
+      - name: Install Node.js dependencies
         run: |
-          npm ci --no-audit
+          # Create a minimal package-lock.json if it doesn't exist
+          if [ ! -f package-lock.json ]; then
+            echo '{"name":"website","version":"1.0.0","lockfileVersion":2,"requires":true,"packages":{}}' > package-lock.json
+          fi
+          
+          # Install dependencies using npm ci with fallback to npm install
+          npm ci --no-audit --prefer-offline || npm install --no-audit
+          
+          # Clean npm cache
           npm cache clean --force
 
-      - name: Build
+      - name: Build the application
         run: |
           # Set the homepage to root
           npm pkg set homepage="/"
-          # Build the app
+          
+          # Build the application
           npm run build
+          
           # Create necessary files for GitHub Pages
           touch build/.nojekyll
           echo 'www.catchycompany.com' > build/CNAME
+          
           # Copy all files to the root of the repository
           cp -r build/* .
-          cp -r build/.* . 2>/dev/null || :
+          cp -r build/.* . 2>/dev/null || true
+          
+          # Verify build output
+          ls -la
 
 
       - name: Deploy to GitHub Pages
@@ -53,8 +65,12 @@ jobs:
             .git
             .github
             node_modules
-            src
-            public
+            src/
+            public/
             package.json
             package-lock.json
             README.md
+            .gitignore
+            _config.yml
+          commit-message: 'Deploy to GitHub Pages'
+          force: true
