@@ -24,14 +24,27 @@ jobs:
 
       - name: Install Node.js dependencies
         run: |
-          # Install dependencies with legacy peer deps to handle TypeScript version conflict
-          npm install --legacy-peer-deps --no-audit
-          
-          # Verify TypeScript version
-          echo "TypeScript version:" && npx tsc --version
-          
-          # Clean npm cache
+          # Clean npm cache and remove node_modules if exists
           npm cache clean --force
+          rm -rf node_modules/
+          
+          # Try npm ci first, fall back to npm install if it fails
+          if [ -f package-lock.json ]; then
+            echo "Using package-lock.json for installation"
+            npm ci --no-audit --legacy-peer-deps || \
+            (echo "npm ci failed, falling back to npm install" && \
+             npm install --no-audit --legacy-peer-deps)
+          else
+            echo "No package-lock.json found, using npm install"
+            npm install --no-audit --legacy-peer-deps
+          fi
+          
+          # Verify installations
+          echo "=== Environment Information ==="
+          echo "Node version: $(node --version)"
+          echo "npm version: $(npm --version)"
+          echo "TypeScript version: $(npx tsc --version || echo 'TypeScript not found')"
+          echo "============================="
 
       - name: Build the application
         run: |
