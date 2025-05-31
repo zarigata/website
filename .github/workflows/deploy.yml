@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -24,46 +24,37 @@ jobs:
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
 
-      - name: Generate package-lock.json if missing
-        run: |
-          if [ ! -f package-lock.json ]; then
-            npm install --package-lock-only
-          fi
-
       - name: Install dependencies
         run: |
           npm ci --no-audit
           npm cache clean --force
-          
-      - name: Verify node_modules
-        run: |
-          if [ ! -d "node_modules" ]; then
-            echo "node_modules not found, installing dependencies..."
-            npm install
-          fi
 
       - name: Build
         run: |
-          # Set the homepage in package.json to relative path
-          npm pkg set homepage="."
+          # Set the homepage to root
+          npm pkg set homepage="/"
           # Build the app
           npm run build
           # Create necessary files for GitHub Pages
           touch build/.nojekyll
           echo 'www.catchycompany.com' > build/CNAME
+          # Copy all files to the root of the repository
+          cp -r build/* .
+          cp -r build/.* . 2>/dev/null || :
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'build'
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: .
+          clean: true
+          clean-exclude: |
+            .git
+            .github
+            node_modules
+            src
+            public
+            package.json
+            package-lock.json
+            README.md

@@ -21,11 +21,33 @@ A bilingual (Arabic/English) marketing and digital consultancy website for the S
 - TailwindCSS for styling
 - GitHub Actions for automated deployment
 
-## 🚀 Getting Started
+## 🚀 Deployment
+
+This website is automatically deployed to GitHub Pages when changes are pushed to the `main` branch. The deployment is handled by GitHub Actions.
+
+### Manual Deployment
+
+If you need to deploy manually:
+
+1. Make sure all your changes are committed and pushed to the `main` branch
+2. Run the following commands:
+   ```bash
+   npm run build
+   npm run deploy
+   ```
+
+### Custom Domain
+
+To set up a custom domain:
+
+1. Create a `CNAME` file in the root directory with your domain (e.g., `www.yourdomain.com`)
+2. Configure your DNS settings to point to your GitHub Pages URL
+
+## 🛠️ Getting Started
 
 ### Prerequisites
 
-Make sure you have Node.js (v14 or later) and npm installed on your machine.
+Make sure you have Node.js (v16 or later) and npm installed on your machine.
 
 ### Installation
 

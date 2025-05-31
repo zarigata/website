@@ -874,7 +874,7 @@
   "bugs": {
     "url": "https://github.com/zarigata/website/issues"
   },
-  "homepage": ".",
+  "homepage": "/",
   "description": "",
   "browserslist": {
     "production": [
