@@ -24,13 +24,11 @@ jobs:
 
       - name: Install Node.js dependencies
         run: |
-          # Create a minimal package-lock.json if it doesn't exist
-          if [ ! -f package-lock.json ]; then
-            echo '{"name":"website","version":"1.0.0","lockfileVersion":2,"requires":true,"packages":{}}' > package-lock.json
-          fi
+          # Install dependencies with legacy peer deps to handle TypeScript version conflict
+          npm install --legacy-peer-deps --no-audit
           
-          # Install dependencies using npm ci with fallback to npm install
-          npm ci --no-audit --prefer-offline || npm install --no-audit
+          # Verify TypeScript version
+          echo "TypeScript version:" && npx tsc --version
           
           # Clean npm cache
           npm cache clean --force
