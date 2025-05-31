@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Redirecting to CatchyCompany</title>
-    <script>
-        // Check if we're on GitHub Pages root
-        if (window.location.pathname === '/' || window.location.pathname === '/website/') {
-            // Redirect to the GitHub Pages URL
-            window.location.href = 'https://zarigata.github.io/website';
-        } else {
-            // For local development or other paths, redirect to the root of the built app
-            window.location.href = '/website';
-        }
-    </script>
-    <meta http-equiv="refresh" content="0; url=https://zarigata.github.io/website">
-</head>
-<body>
-    <p>If you are not redirected, <a href="https://zarigata.github.io/website">click here</a>.</p>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="CatchyCompany - Marketing & Digital Solutions in Saudi Arabia"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>CatchyCompany - Marketing & Digital Solutions</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
 </html>

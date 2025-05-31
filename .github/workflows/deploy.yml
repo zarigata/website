@@ -44,12 +44,13 @@ jobs:
 
       - name: Build
         run: |
+          # Set the homepage in package.json to relative path
+          npm pkg set homepage="."
+          # Build the app
           npm run build
           # Create necessary files for GitHub Pages
           touch build/.nojekyll
           echo 'www.catchycompany.com' > build/CNAME
-          # Create a simple index.html that redirects to the built app
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/website" /></head><body>Redirecting to <a href="/website">/website</a>...</body></html>' > build/index.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
