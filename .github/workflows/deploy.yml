@@ -7,81 +7,29 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Node.js ⚙️
+        uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 18
+          cache: 'npm'
 
-      - name: Install Node.js dependencies
-        run: |
-          # Clean npm cache and remove node_modules if exists
-          npm cache clean --force
-          rm -rf node_modules/
-          
-          # Try npm ci first, fall back to npm install if it fails
-          if [ -f package-lock.json ]; then
-            echo "Using package-lock.json for installation"
-            npm ci --no-audit --legacy-peer-deps || \
-            (echo "npm ci failed, falling back to npm install" && \
-             npm install --no-audit --legacy-peer-deps)
-          else
-            echo "No package-lock.json found, using npm install"
-            npm install --no-audit --legacy-peer-deps
-          fi
-          
-          # Verify installations
-          echo "=== Environment Information ==="
-          echo "Node version: $(node --version)"
-          echo "npm version: $(npm --version)"
-          echo "TypeScript version: $(npx tsc --version || echo 'TypeScript not found')"
-          echo "============================="
+      - name: Install Dependencies 📦
+        run: npm ci
 
-      - name: Build the application
-        run: |
-          # Set the homepage to root
-          npm pkg set homepage="/"
-          
-          # Build the application
-          npm run build
-          
-          # Create necessary files for GitHub Pages
-          touch build/.nojekyll
-          echo 'www.catchycompany.com' > build/CNAME
-          
-          # Copy all files to the root of the repository
-          cp -r build/* .
-          cp -r build/.* . 2>/dev/null || true
-          
-          # Verify build output
-          ls -la
+      - name: Build 🏗️
+        run: npm run build
 
-
-      - name: Deploy to GitHub Pages
+      - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
+          folder: build
           branch: gh-pages
-          folder: .
           clean: true
-          clean-exclude: |
-            .git
-            .github
-            node_modules
-            src/
-            public/
-            package.json
-            package-lock.json
-            README.md
-            .gitignore
-            _config.yml
-          commit-message: 'Deploy to GitHub Pages'
-          force: true

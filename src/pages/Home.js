@@ -38,36 +38,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Value Proposition Section */}
-      <section className="value-proposition">
-        <div className="container">
-          <div className="value-content">
-            <h2 className="section-title">
-              {i18n.language === 'en' 
-                ? 'Your Digital Success, Our Expertise' 
-                : 'نجاحك الرقمي هو اختصاصنا'}
-            </h2>
-            <div className="value-text">
-              <p>
-                {i18n.language === 'en' 
-                  ? "In today's digital-first world, your online presence isn't just important—it's essential. We don't just build websites; we create digital experiences that convert visitors into customers and ideas into realities. Our team of marketing and web design experts becomes an extension of your business, working tirelessly to ensure your digital presence not only looks stunning but delivers real, measurable results."
-                  : "في عالم اليوم الرقمي، لم يعد التواجد الإلكتروني مجرد خيار - بل أصبح ضرورة. نحن لا نكتفي بإنشاء المواقع الإلكترونية؛ بل نصنع تجارب رقمية تحول الزوار إلى عملاء والأفكار إلى حقائق. يصبح فريقنا من خبراء التسويق وتصميم الويب امتدادًا لعملك، ويعمل بلا كلل لضمان أن تواجدك الرقمي لا يبدو رائعًا فحسب، بل يحقق نتائج حقيقية وقابلة للقياس."}
-              </p>
-              <p>
-                {i18n.language === 'en'
-                  ? "What sets us apart? We take the time to understand your unique business needs, then craft a tailored strategy that aligns with your goals. Whether you need a complete digital makeover, ongoing marketing support, or a powerful new website, we've got you covered—every step of the way."
-                  : "ما يميزنا؟ نأخذ الوقت الكافي لفهم احتياجات عملك الفريدة، ثم نضع استراتيجية مخصصة تتماشى مع أهدافك. سواء كنت بحاجة إلى تحول رقمي كامل، أو دعم تسويقي مستمر، أو موقع ويب جديد قوي، فنحن هنا من أجلك - في كل خطوة على الطريق."}
-              </p>
-              <div className="cta-container">
-                <Link to="/contact" className="cta-button primary">
-                  {i18n.language === 'en' ? 'Let\'s Build Your Digital Future' : 'لنبني مستقبلك الرقمي معًا'}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Services Overview */}
       <section className="services-overview">
         <div className="section-header">

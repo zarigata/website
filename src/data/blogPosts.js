@@ -10,7 +10,7 @@
 // Import images for blog posts
 import aiImage from '../assets/AI cat.png';
 import marketingImage from '../assets/influencer.png';
-import webImage from '../assets/progrtamer.png';
+import webImage from '../assets/progrtam.png';
 import vision2030Image from '../assets/AI cat.png'; // Replace with actual Vision 2030 image
 
 // Blog posts data structure
